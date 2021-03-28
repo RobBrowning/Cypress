@@ -9,7 +9,9 @@
   "author": "Rob Browning",
   "license": "ISC",
   "devDependencies": {
+    "axe-core": "^4.1.3",
     "cypress": "^6.8.0",
-    "cypress-audit": "^0.3.0"
+    "cypress-audit": "^0.3.0",
+    "cypress-axe": "^0.12.2"
   }
 }
