@@ -1,7 +1,14 @@
 {
   "videoUploadOnPasses": false,
   "experimentalStudio": true,
+  "chromeWebSecurity": false,
   "viewportWidth": 1000,
   "viewportHeight": 660,
-  "baseUrl": "https://www.pickswise.com/"
+  "baseUrl": "https://www.pickswise.com/",
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "testResults/test-output-[hash].xml",
+    "toConsole": true,
+    "attachments": true
+  }
 }

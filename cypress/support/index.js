@@ -16,6 +16,32 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 import 'cypress-axe';
-import 'cypress-audit/commands';
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  debugger;
+  return false;
+});
+
+beforeEach(function () {
+  window.logCalls = 1;
+  window.testFlow = [];
+});
+
+Cypress.Commands.overwrite('log', (originalFn, message) => {
+  Cypress.log({
+    displayName: `--- ${window.logCalls}. ${message} ---`,
+    name: `--- ${window.logCalls}. ${message} ---`,
+    message: '',
+  });
+
+  window.testFlow.push(`${window.logCalls}. ${message}`);
+  window.logCalls++;
+});
+
+Cypress.on('fail', (error) => {
+  throw new Error(error + '\n\nTest flow:\n' + window.testFlow.join('\n'));
+});

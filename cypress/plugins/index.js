@@ -16,18 +16,22 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
-
-const { lighthouse, pa11y, prepareAudit } = require('cypress-audit');
-
+let percyHealthCheck = require('@percy/cypress/task');
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    prepareAudit(launchOptions);
-  });
+  on('task', percyHealthCheck);
 
   on('task', {
-    lighthouse: lighthouse(), // calling the function is important
-    pa11y: pa11y(), // calling the function is important
+    log(message) {
+      console.log(message);
+
+      return null;
+    },
+    table(message) {
+      console.table(message);
+
+      return null;
+    },
   });
 };
