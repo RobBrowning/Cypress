@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:percy": "percy exec -- cypress run --spec cypress/integration/Percy/percyTests.spec.js"
+    "cy:percy": "percy exec -- cypress run --spec cypress/integration/Percy/percyTests.spec.js",
+    "cy:run:accessibility": "cypress run --spec cypress/integration/A11yTests.spec.js"
   },
   "author": "Rob Browning",
   "license": "ISC",

@@ -1,0 +1,28 @@
+# run the same job on 2 CI machines in parallel
+# https://docs.microsoft.com/en-us/vsts/pipelines/process/phases
+jobs:
+  - job: Test
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+      - script: npm ci
+        displayName: 'Install NPM dependencies'
+      - script: npm run cy:verify
+        displayName: 'Cypress verify'
+      - script: node_modules/.bin/cypress run --spec cypress/integration/Functional/**"
+        displayName: 'Run Cypress tests'
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Screenshots (Cypress)'
+        condition: failed()
+        inputs:
+          targetPath: '$(Build.SourcesDirectory)/cypress/screenshots'
+          artifactName: 'screenshots'
+      - task: PublishTestResults@2
+        condition: succeededOrFailed()
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: 'testResults/**test-*.xml'
