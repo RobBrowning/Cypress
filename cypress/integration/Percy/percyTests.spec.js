@@ -6,7 +6,7 @@ describe('percy tests', () => {
   it('should screenshot homepage', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
-    cy.get(cookie.agreeButton).should('be.visible').click();
+    cy.get(cookie.agreeButton).should('be.visible').click({force: true});
     cy.scrollTo('bottom');
 
     cy.wait(9000);
