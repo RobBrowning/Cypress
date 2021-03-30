@@ -8,7 +8,8 @@ describe('home page tests', () => {
   it('should assert elements exist', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
-    cy.get(cookie.agreeButton).should('be.visible').click({force: true});
+    cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
+    cy.get(home.pickswiseLogo).should('be.visible');
 
     cy.get(home.promoCodeCard).should('be.visible');
     cy.get(home.twitterFeedComponent).should('be.visible');
@@ -20,7 +21,8 @@ describe('home page tests', () => {
   it('Should assert navigation available', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
-    cy.get(cookie.agreeButton).should('be.visible').click({force: true});
+    cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
+    cy.get(home.pickswiseLogo).should('be.visible');
 
     cy.get(nav.nbaLink).should('be.visible');
     cy.get(nav.cbbLink).should('be.visible');
@@ -34,7 +36,8 @@ describe('home page tests', () => {
   it('Should assert redirects exist', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
-    cy.get(cookie.agreeButton).should('be.visible').click({force: true});
+    cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
+    cy.get(home.pickswiseLogo).should('be.visible');
 
     cy.get(home.bet365ClamButton)
       .should('have.attr', 'href')
@@ -66,7 +69,8 @@ describe('home page tests', () => {
     cy.viewport('iphone-x');
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
-    cy.get(cookie.agreeButton).should('be.visible').click({force: true});
+    cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
+    cy.get(home.pickswiseLogo).should('be.visible');
 
     cy.get(home.promoCodeCard).should('be.visible');
     cy.get(home.twitterFeedComponent).should('be.hidden');
