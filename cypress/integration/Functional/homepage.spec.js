@@ -9,7 +9,7 @@ describe('home page tests', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
     cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
-    cy.get(home.pickswiseLogo).should('be.visible');
+    cy.get(home.pickswiseLogo).should('be.visible', { force: true });
 
     cy.get(home.promoCodeCard).should('be.visible');
     cy.get(home.twitterFeedComponent).should('be.visible');
@@ -22,7 +22,7 @@ describe('home page tests', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
     cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
-    cy.get(home.pickswiseLogo).should('be.visible');
+    cy.get(home.pickswiseLogo).should('be.visible', { force: true });
 
     cy.get(nav.nbaLink).should('be.visible');
     cy.get(nav.cbbLink).should('be.visible');
@@ -37,7 +37,7 @@ describe('home page tests', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
     cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
-    cy.get(home.pickswiseLogo).should('be.visible');
+    cy.get(home.pickswiseLogo).should('be.visible', { force: true });
 
     cy.get(home.bet365ClamButton)
       .should('have.attr', 'href')
@@ -70,7 +70,7 @@ describe('home page tests', () => {
     cy.visit('/');
     cy.get(home.pickswiseLogo).should('be.visible');
     cy.get(cookie.agreeButton).should('be.visible').click({ force: true });
-    cy.get(home.pickswiseLogo).should('be.visible');
+    cy.get(home.pickswiseLogo).should('be.visible', { force: true });
 
     cy.get(home.promoCodeCard).should('be.visible');
     cy.get(home.twitterFeedComponent).should('be.hidden');
