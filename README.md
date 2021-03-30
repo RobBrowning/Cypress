@@ -27,3 +27,5 @@ This project has examples of:
 **Accessibility test**: for the home page
 
 **Percy screenshot compare test**: compares latest build with benchmark
+
+**Performance test**: capturing page load to copmpare with set expected threshold
