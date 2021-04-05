@@ -22,6 +22,8 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
   on('task', percyHealthCheck);
 
+  require('cypress-mochawesome-reporter/plugin')(on);
+
   on('task', {
     log(message) {
       console.log(message);

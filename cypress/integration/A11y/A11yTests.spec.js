@@ -19,14 +19,16 @@ function terminalLog(violations) {
   cy.task('table', violationData);
 }
 
-it('The Internet hovers', () => {
-  cy.visit('/');
-  cy.injectAxe();
-  cy.checkA11y(null, {
-    runOnly: {
-      type: 'tag',
-      values: ['wcag2a', 'wcag2aa'],
-    },
-    terminalLog,
+describe('A11y tests', () => {
+  it('Should assert A11y checks on home page', () => {
+    cy.visit('/');
+    cy.injectAxe();
+    cy.checkA11y(null, {
+      runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa'],
+      },
+      terminalLog,
+    });
   });
 });

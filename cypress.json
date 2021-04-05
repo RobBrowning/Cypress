@@ -5,10 +5,16 @@
   "viewportWidth": 1000,
   "viewportHeight": 660,
   "baseUrl": "https://www.pickswise.com/",
-  "reporter": "junit",
+  "reporter": "cypress-multi-reporters",
   "reporterOptions": {
-    "mochaFile": "testResults/test-output-[hash].xml",
-    "toConsole": true,
-    "attachments": true
-  }
+    "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+    "mochaJunitReporterReporterOptions": {
+      "mochaFile": "cypress/reports/junit/results-[hash].xml"
+    },
+    "cypressMochawesomeReporterReporterOptions": {
+      "charts": true,
+      "reportPageTitle": "custom-title"
+    }
+  },
+  "video": false
 }
