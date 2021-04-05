@@ -13,7 +13,7 @@ jobs:
         displayName: 'Install NPM dependencies'
       - script: npm run cy:verify
         displayName: 'Cypress verify'
-      - script: node_modules/.bin/cypress run --spec cypress/integration/Functional/**"
+      - script: npm run test:junit
         displayName: 'Run Cypress tests'
       - task: PublishPipelineArtifact@1
         displayName: 'Publish Screenshots (Cypress)'
