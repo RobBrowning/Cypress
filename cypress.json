@@ -9,11 +9,13 @@
   "reporterOptions": {
     "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
     "mochaJunitReporterReporterOptions": {
-      "mochaFile": "cypress/reports/junit/results-[hash].xml"
+      "mochaFile": "testResults/test-output-[hash].xml",
+      "toConsole": true,
+      "attachments": true
     },
     "cypressMochawesomeReporterReporterOptions": {
       "charts": true,
-      "reportPageTitle": "custom-title"
+      "reportPageTitle": "Pickswise-Report"
     }
   },
   "video": false
