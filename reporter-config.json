@@ -1,7 +1,7 @@
 {
   "reporterEnabled": "spec, mocha-junit-reporter",
   "reporterOptions": {
-    "mochaFile": "testResults/test-output-[hash].xml",
+    "mochaFile": "testResults/**test-*.xml",
     "toConsole": true,
     "attachments": true
   }
